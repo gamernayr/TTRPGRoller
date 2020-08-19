@@ -2,10 +2,17 @@
 By Ryan Epp
 
 ---
+**Features:**
 Rolls different amounts of dice and outputs the results.
-Supports large amounts of dice with any side number.
+Supports large amounts of dice with any side number, and modifiers.
 
 **Example:**
-2d5+8d21
+2d5+8d21+16
 
-Run in any python enabled terminal.
+**Requirements:**
+Run in any python 3 enabled terminal.
+
+**Bugs/Needs Improvement:**
+- Negative modifier support (1d4-2).
+- Parsing structure of operands
+- Advantage/Disadvantage support
