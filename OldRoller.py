@@ -3,7 +3,7 @@
 # Author: Ryan Epp
 # Description: Rolls virtual dice by text input and gives results
 
-import random
+import random, re
 
 def roll(sides, num):
     sum = 0
@@ -58,6 +58,18 @@ def build_roll(builder, isPos):
         val = int(split[0])
         return Roll(val, -1, isPos, False)
     
+def input_is_valid(n: str):
+    if len(n) == 0:
+        print("String input was empty")
+        return False
+    #elif re.search("^d", n) is None and re.search("d", n) is not None:
+    #    print("Used dice quantifier without numbers")
+    #    return False
+
+    return True
+
+def format_input(n: str):
+    return re.sub("^0-9d", "", n)
 
 repeat = True
 
@@ -67,11 +79,13 @@ while repeat: # keep rolling
     print("--------")
 
     # split dice types
-    rolls_to_process = input_to_rolls(input().replace(" ", ""))
+    input_from_user = format_input(input())
+    if input_is_valid(input_from_user):
+        rolls_to_process = input_to_rolls(input_from_user)
 
-    totalResult = 0
+        totalResult = 0
 
-    for unit in rolls_to_process:
-        totalResult = totalResult + unit.eval()
+        for unit in rolls_to_process:
+            totalResult = totalResult + unit.eval()
 
-    print("[" + str(totalResult) + "]")
+        print("[" + str(totalResult) + "]")
