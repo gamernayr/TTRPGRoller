@@ -16,3 +16,6 @@ Run in any python 3 enabled terminal.
 - Negative modifier support (1d4-2).
 - Parsing structure of operands
 - Advantage/Disadvantage support
+
+---
+Also includes a [Scion](https://en.wikipedia.org/wiki/Scion_(role-playing_game)) dice roller in another file.
